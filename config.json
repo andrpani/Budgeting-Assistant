@@ -6,5 +6,6 @@
         "temperature": null,
         "max_tokens": null 
     },
-    "input_dir": "inputs"
+    "input_dir": "inputs",
+    "processed_filename": "processed_files.txt"
 }    

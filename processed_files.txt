@@ -1,0 +1,4 @@
+inputs\amazon1.pdf
+inputs\receipt1.jpg
+inputs\receipt2.jpeg
+inputs\receipt3.png

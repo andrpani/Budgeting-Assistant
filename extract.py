@@ -18,6 +18,8 @@ def custom_json_decoder(json_dict):
 def extract_from_receipt(dir_path: str):
     print(os.listdir(dir_path))
 
+
+
 if __name__ == '__main__':
     with open('config.json', 'r') as jsonfile:
         config = json.load(jsonfile, object_hook=custom_json_decoder)
