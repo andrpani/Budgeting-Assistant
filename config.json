@@ -1,0 +1,10 @@
+{
+    "llm": 
+    {
+        "model": "gemini-2.5-flash",
+        "model_provider": "google_genai",
+        "temperature": null,
+        "max_tokens": null 
+    },
+    "input_dir": "inputs"
+}    

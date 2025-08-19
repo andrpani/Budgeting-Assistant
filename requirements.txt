@@ -1,0 +1,6 @@
+langchain==0.3.27
+langchain_community==0.3.27
+langchain_core==0.3.74
+langgraph==0.6.5
+pydantic==2.11.7
+python-dotenv==1.1.1
