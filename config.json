@@ -7,5 +7,6 @@
         "max_tokens": null 
     },
     "input_dir": "inputs",
-    "processed_filename": "processed_files.txt"
+    "processed_filename": "processed_files.txt",
+    "db_name": "budgeting.db"
 }    
