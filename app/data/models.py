@@ -32,7 +32,7 @@ class Item(BaseModel):
         if self.quantity and self.unit_price and not self.tot_price:
             self.tot_price = self.unit_price * self.quantity
         if self.unit_price and self.tot_price and not self.quantity:
-            self.quantity = self.tot_price / self.unit_price
+            self.quantity = int(self.tot_price / self.unit_price)
         
         return self
 

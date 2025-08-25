@@ -1,0 +1,9 @@
+llm:
+  name: "gemini-2.5-flash"
+  provider: "google_genai"
+
+embedding:
+  name: ""
+  provider: ""
+
+

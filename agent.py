@@ -17,7 +17,7 @@ from langgraph.graph import StateGraph, MessagesState, START
 from langgraph.prebuilt import create_react_agent
 from langgraph.checkpoint.memory import InMemorySaver
 from prompts import system_message, agent_prompt
-from datamodel import StructuredData, Purchase
+from data.models import StructuredData, Purchase
 from pathlib import Path
 from typing import List
 
@@ -139,7 +139,7 @@ def main():
     tools = sql_toolkit.get_tools() + []
     agent = create_react_agent(
         llm,
-        prompt=system_message,
+        prompt='You are a helpful assistant',
         checkpointer=memory,
         pre_model_hook=pre_model_hook,
         tools=tools
