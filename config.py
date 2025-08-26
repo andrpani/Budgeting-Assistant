@@ -22,6 +22,7 @@ class Settings(BaseModel):
     openai_api_key: SecretStr | None = None
     google_genai_api_key: SecretStr | None = None
     huggingface_api_key: SecretStr | None = None
+    #db_name: str 
 
 
 def get_settings(path: str = "config.yaml") -> Settings:
