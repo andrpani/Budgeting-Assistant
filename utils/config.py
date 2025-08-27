@@ -25,7 +25,7 @@ class Settings(BaseModel):
     #db_name: str 
 
 
-def get_settings(path: str = "config.yaml") -> Settings:
+def load_settings(path: str = "config.yaml") -> Settings:
     with open(path, 'r') as configfile:
         data = yaml.safe_load(configfile)
     
