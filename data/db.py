@@ -67,24 +67,29 @@ class BudgetingDBSQLite:
                                         "VALUES (:name, :quantity, :unit_price, :tot_price, :info, :purchase_id)", item_dict)
                     db.commit()
     
-    def get_purchases(self):
+    def get_purchases(self) -> List[dict]:
         with sqlite3.connect(DB_PATH) as db:
             db.row_factory = sqlite3.Row
             cursor = db.cursor()
             cursor.execute('SELECT * FROM Purchase')
             purchases = []
             rows = cursor.fetchall()
-            for row in rows:
-                purchases.append(Purchase(
-                    title=row['Title'],
-                    total=row['Total'],
-                    date=row['Date'],
-                    items=[]
-                ))
             return [dict(row) for row in rows]
+    
+    def get_purchase_items(self, purchases: List[dict]):
+        with sqlite3.connect(DB_PATH) as db:
+            db.row_factory = sqlite3.Row
+            cursor = db.cursor()
+            purchase_items = []
+            for purchase in purchases:
+                cursor.execute('SELECT * FROM PurchaseItem WHERE PurchaseID = ?', (purchase['ID'],))
+                rows = cursor.fetchall()
+                for row in rows:
+                    purchase_items.append(dict(row))
+            return purchase_items
 
 
-        
+"""     
 def db_init(schema: str):
     "Initializes the DB according to the SQL schema"
     with sqlite3.connect(DB_PATH) as db:
@@ -108,4 +113,7 @@ def get_purchases(as_df: bool = True):
         else:
             rows = db.execute(query)
             return rows
+"""
 
+if __name__ == '__main__':
+    get_purchases()

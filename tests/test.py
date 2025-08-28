@@ -1,5 +1,11 @@
-from app.config import get_settings
+from data.db import BudgetingDBSQLite
 
-settings = get_settings()
+db = BudgetingDBSQLite()
 
-print(settings)
+purchases = db.get_purchases()
+
+purchase_items = db.get_purchase_items(purchases)
+
+print(purchases)
+
+print(purchase_items)
