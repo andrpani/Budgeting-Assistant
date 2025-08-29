@@ -210,3 +210,4 @@ __marimo__/
 inputs/
 *.db
 project.md
+.streamlit

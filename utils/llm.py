@@ -2,6 +2,7 @@ import base64
 from mimetypes import guess_extension, guess_type
 from langchain_core.messages import HumanMessage
 from typing import IO, Literal
+from langchain_core.messages.utils import trim_messages, count_tokens_approximately
 
 
 class MultimodalMessage(HumanMessage):
@@ -26,6 +27,17 @@ class MultimodalMessage(HumanMessage):
                 'mime_type': mime_type
             }
         ])
+
+def pre_model_hook(state):
+    trimmed_messages = trim_messages(
+        state["messages"],
+        strategy="last",
+        token_counter=count_tokens_approximately,
+        max_tokens=1024,
+        start_on="human",
+        end_on=("human", "tool"),
+    )
+    return {"llm_input_messages": trimmed_messages}
                 
 
 
