@@ -9,3 +9,6 @@ embedding:
 
 db:
   name: "budgeting"
+
+app:
+  currency: euro

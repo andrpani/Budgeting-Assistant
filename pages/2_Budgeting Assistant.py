@@ -10,7 +10,7 @@ from langchain.agents.chat.output_parser import ChatOutputParser
 from utils.llm import pre_model_hook
 
 
-st.title('Budgeting Assistant')
+st.title('🤖 Budgeting Assistant')
 
 client = ChatGoogleGenerativeAI(
     model='gemini-2.5-flash',
